@@ -69,12 +69,12 @@ int main(int argc, char *argv[]) {
 			return 0;
 		}
 
-		const auto p_args = vm["p_args"].as<std::vector<std::string>>();
-
-		if (p_args.size() == 0) {
+		if (vm.count("p_args") == 0) {
 			std::cout << "Usage: program --help" << std::endl;
 			return -1;
 		}
+
+		const auto p_args = vm["p_args"].as<std::vector<std::string>>();
 
 		MnistNN nn{};
 
